@@ -23,17 +23,16 @@ public class LDE {
         if (this.isEmpty()) {
             this.primeiro = novo;
             this.ultimo = novo;
-            this.qtd++;
-            System.out.println("Primeiro Cliente inserido");
+            System.out.println("Primeira inserção.");
         } else {
 
             aux = this.primeiro;
             novo.setProx(this.primeiro);
             this.primeiro.setAnt(novo);
             this.primeiro = novo;
-            this.qtd++;
         }
-        System.out.println("Cliente inserido!");
+        System.out.println("Cliente inserido");
+        qtd++;
     }
 
     public void inserirFinal(Cliente c) {
@@ -41,26 +40,25 @@ public class LDE {
         if (isEmpty()) {
             this.primeiro = novo;
             this.ultimo = novo;
+            System.out.println("Primeira inserção.");
         } else if (qtd == 1) {
             this.primeiro.setProx(novo);
             novo.setAnt(this.primeiro);
             this.ultimo = novo;
         } else {
-            Node aux = this.primeiro;
-
-            while (aux.getProx() != null) {
-                aux = aux.getProx();
-            }
-            novo.setAnt(aux);
+            Node aux = ultimo;
             aux.setProx(novo);
+            novo.setAnt(aux);
+            this.ultimo = novo;
         }
-
+        System.out.println("Cliente inserido");
         this.qtd++;
     }
 
     public void removerInicio() {
         if (isEmpty()) {
             System.out.println("Nada pra remover po");
+            return;
         } else if (qtd == 1) {
             this.primeiro = null;
             this.ultimo = null;
@@ -76,6 +74,7 @@ public class LDE {
     public void removerFinal() {
         if (isEmpty()) {
             System.out.println("A lista ta vazia po");
+            return;
         } else if (qtd == 1) {
             this.primeiro = null;
             this.ultimo = null;
@@ -83,6 +82,8 @@ public class LDE {
             Node aux = ultimo.getAnt();
             aux.setProx(null);
         }
+
+        System.out.println("Cliente removido.");
 
         this.qtd--;
     }
@@ -102,7 +103,6 @@ public class LDE {
     }
 
     public void exibirContrario() {
-
         Node aux;
         if (this.isEmpty() == true) {
             System.out.println("Não existem clientes cadastrados!");
