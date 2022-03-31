@@ -69,6 +69,8 @@ public class LDE {
             aux.setAnt(null);
             this.primeiro = aux;
         }
+
+        this.qtd--;
     }
 
     public void removerFinal() {
