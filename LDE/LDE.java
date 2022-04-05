@@ -15,18 +15,51 @@ public class LDE {
         }
     }
 
+    public void inserirOrdenado (Cliente c) {
+        Node novo = new Node (c);
+        if (this.isEmpty() == true) { // inserção na lista vazia
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        }
+        else if (c.compareTo(this.primeiro.getInfo()) < 0) { // inserção antes do primeiro
+            novo.setProx(this.primeiro);
+            this.primeiro.setAnt(novo);
+            this.primeiro = novo;
+            this.qtd++;
+        }
+        else if (c.compareTo(this.ultimo.getInfo()) > 0) { // inserção após o último
+            this.ultimo.setProx(novo);
+            novo.setAnt(this.ultimo);
+            this.ultimo = novo;
+            this.qtd++;
+        }
+        else { 
+            Node aux = this.primeiro;
+            while(aux != null){
+
+                  if (c.compareTo(aux.getInfo()) < 0){
+                        novo.setAnt(aux.getAnt());
+                        novo.setProx(aux);
+                        aux.getAnt().setProx(novo);
+                        aux.setAnt(novo);
+                        this.qtd++;
+                        return;
+                    }
+                aux = aux.getProx();
+            }
+        }
+    }
+
     public void inserirInicio(Cliente c) {
 
         Node novo = new Node(c);
-        Node aux;
 
         if (this.isEmpty()) {
             this.primeiro = novo;
             this.ultimo = novo;
             System.out.println("Primeira inserção.");
         } else {
-
-            aux = this.primeiro;
             novo.setProx(this.primeiro);
             this.primeiro.setAnt(novo);
             this.primeiro = novo;

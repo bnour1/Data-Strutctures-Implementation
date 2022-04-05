@@ -1,6 +1,6 @@
 package LDE;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
 
     private String cpf;
     private String nome;
@@ -53,6 +53,10 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int compareTo(Cliente c){
+        return this.cpf.compareTo(c.getCpf());
     }
 
 }
