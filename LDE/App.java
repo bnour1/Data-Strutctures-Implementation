@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("MUDANDO COISAS");
         LDE Clientlist = new LDE();
         Scanner in = new Scanner(System.in);
         char op;
