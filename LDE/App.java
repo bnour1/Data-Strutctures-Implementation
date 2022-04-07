@@ -36,6 +36,7 @@ public class App {
                 case '7':
                     c = preencher();
                     Clientlist.inserirOrdenado(c);
+                    break;
                 case '8':
                     c = preencher();
                     Clientlist.inserirOrdenadoDecrescente(c);
@@ -81,13 +82,13 @@ public class App {
         } else {
             System.out.println("----Insira os dados do novo Cliente----");
             System.out.println("CPF : ");
-            cpf = input.nextLine();
-            cpf = input.nextLine();
+            cpf = input.next();
             System.out.println("NOME : ");
-            nome = input.nextLine();
+            nome = input.next();
             System.out.println("FONE :");
-            fone = input.nextLine();
+            fone = input.next();
             System.out.println("EMAIL :");
+            email = input.nextLine();
             email = input.nextLine();
             return new Cliente(cpf, nome, fone, email);
         }

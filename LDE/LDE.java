@@ -78,17 +78,26 @@ public class LDE {
         }
         else { 
             Node aux = this.primeiro;
+            int result;
             while(aux != null){
+                result = c.compareTo(aux.getInfo());
 
-                  if (c.compareTo(aux.getInfo()) < 0){
-                        novo.setAnt(aux.getAnt());
-                        novo.setProx(aux);
-                        aux.getAnt().setProx(novo);
-                        aux.setAnt(novo);
-                        this.qtd++;
-                        return;
-                    }
-                aux = aux.getProx();
+                if (result == 0){
+                    novo.setAnt(aux.getAnt());
+                    novo.setProx(aux);
+                    aux.getAnt().setProx(novo);
+                    aux.setAnt(novo);
+                    this.qtd++;
+                    return;
+                  }else if(result < 0){
+                      novo.setAnt(aux.getAnt());
+                      novo.setProx(aux);
+                      aux.getAnt().setProx(novo);
+                      aux.setAnt(novo);
+                      this.qtd++;
+                      return;
+                  }
+              aux = aux.getProx();
             }
         }
     }
