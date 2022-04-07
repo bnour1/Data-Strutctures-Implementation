@@ -36,6 +36,9 @@ public class App {
                 case '7':
                     c = preencher();
                     Clientlist.inserirOrdenado(c);
+                case '8':
+                    c = preencher();
+                    Clientlist.inserirOrdenadoDecrescente(c);
                 case '0':
                     System.out.println("Bye bye!");
                     break;
@@ -55,7 +58,8 @@ public class App {
         System.out.println("4 - Remover cliente do inicio");
         System.out.println("5 - Remover Cleinte do final");
         System.out.println("6 - Exibir lista de trás pra frente");
-        System.out.println("7 - Inserir cliente de forma ordenada");
+        System.out.println("7 - Inserção Crescente");
+        System.out.println("8 - Inserção Decrescente");
         System.out.println("0 - Sair do programa");
         System.out.print("Informe a opção desejada: ");
     }
