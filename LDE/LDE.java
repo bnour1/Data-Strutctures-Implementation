@@ -16,7 +16,7 @@ public class LDE {
     }
 
     public void inserirOrdenadoDecrescente(Cliente c) {
-        Node novo = new Node (c);
+        Node novo = new Node(c);
         if (this.isEmpty() == true) { // inserção na lista vazia
             this.primeiro = novo;
             this.ultimo = novo;
@@ -28,93 +28,87 @@ public class LDE {
             this.primeiro.setAnt(novo);
             this.primeiro = novo;
             this.qtd++;
-        }
-        else if (c.compareTo(this.ultimo.getInfo()) < 0) { // inserção após o último
+        } else if (c.compareTo(this.ultimo.getInfo()) < 0) { // inserção após o último
             this.ultimo.setProx(novo);
             novo.setAnt(this.ultimo);
             this.ultimo = novo;
             this.qtd++;
-        }
-        else { 
+        } else {
             Node aux = this.primeiro;
             int result;
-            while(aux != null){
+            while (aux != null) {
                 result = c.compareTo(aux.getInfo());
 
-                  if (result == 0){
-                      System.out.println("O numero já está na lista");
-                      return;
-                    }else if(result > 0){
-                        novo.setAnt(aux.getAnt());
-                        novo.setProx(aux);
-                        aux.getAnt().setProx(novo);
-                        aux.setAnt(novo);
-                        this.qtd++;
-                        return;
-                    }
-                aux = aux.getProx();
-            }
-        }
-    }
-
-    public void inserirOrdenado (Cliente c) {
-        Node novo = new Node (c);
-        if (this.isEmpty() == true) { // inserção na lista vazia
-            this.primeiro = novo;
-            this.ultimo = novo;
-            this.qtd++;
-        }
-        else if (c.compareTo(this.primeiro.getInfo()) < 0) { // inserção antes do primeiro
-            novo.setProx(this.primeiro);
-            this.primeiro.setAnt(novo);
-            this.primeiro = novo;
-            this.qtd++;
-        }
-        else if (c.compareTo(this.ultimo.getInfo()) > 0) { // inserção após o último
-            this.ultimo.setProx(novo);
-            novo.setAnt(this.ultimo);
-            this.ultimo = novo;
-            this.qtd++;
-        }
-        else { 
-            Node aux = this.primeiro;
-            int result;
-            while(aux != null){
-                result = c.compareTo(aux.getInfo());
-
-                if (result == 0){
+                if (result == 0) {
+                    System.out.println("O numero já está na lista");
+                    return;
+                } else if (result > 0) {
                     novo.setAnt(aux.getAnt());
                     novo.setProx(aux);
                     aux.getAnt().setProx(novo);
                     aux.setAnt(novo);
                     this.qtd++;
                     return;
-                  }else if(result < 0){
-                      novo.setAnt(aux.getAnt());
-                      novo.setProx(aux);
-                      aux.getAnt().setProx(novo);
-                      aux.setAnt(novo);
-                      this.qtd++;
-                      return;
-                  }
-              aux = aux.getProx();
+                }
+                aux = aux.getProx();
             }
         }
     }
 
-    public Node buscaMelhorada(Cliente n){
+    public void inserirOrdenado(Cliente c) {
+        Node novo = new Node(c);
+        if (this.isEmpty() == true) { // inserção na lista vazia
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        } else if (c.compareTo(this.primeiro.getInfo()) < 0) { // inserção antes do primeiro
+            novo.setProx(this.primeiro);
+            this.primeiro.setAnt(novo);
+            this.primeiro = novo;
+            this.qtd++;
+        } else if (c.compareTo(this.ultimo.getInfo()) > 0) { // inserção após o último
+            this.ultimo.setProx(novo);
+            novo.setAnt(this.ultimo);
+            this.ultimo = novo;
+            this.qtd++;
+        } else {
+            Node aux = this.primeiro;
+            int result;
+            while (aux != null) {
+                result = c.compareTo(aux.getInfo());
+
+                if (result == 0) {
+                    novo.setAnt(aux.getAnt());
+                    novo.setProx(aux);
+                    aux.getAnt().setProx(novo);
+                    aux.setAnt(novo);
+                    this.qtd++;
+                    return;
+                } else if (result < 0) {
+                    novo.setAnt(aux.getAnt());
+                    novo.setProx(aux);
+                    aux.getAnt().setProx(novo);
+                    aux.setAnt(novo);
+                    this.qtd++;
+                    return;
+                }
+                aux = aux.getProx();
+            }
+        }
+    }
+
+    public Node buscaMelhorada(Cliente n) {
         Node aux = this.primeiro;
         int result;
 
-        while(aux != null){
+        while (aux != null) {
             result = aux.getInfo().compareTo(n);
-            if(result > 0){
+            if (result > 0) {
                 System.out.println("Valor não encontrado");
                 return null;
-            }
-            else if(result == 0){
+            } else if (result == 0) {
                 return aux;
-            }else{
+            } else {
                 aux = aux.getProx();
             }
         }
@@ -122,7 +116,7 @@ public class LDE {
         return null;
     }
 
-    public void remocaoOC(Cliente c){
+    public void remocaoOC(Cliente c) {
 
         if (isEmpty()) {
             System.out.println("Nada pra remover po");
@@ -133,13 +127,25 @@ public class LDE {
         } else {
             Node aux = buscaMelhorada(c);
 
-            if(aux == null){
+            if (aux == null) {
                 System.out.println("Cliente não encontrado");
-            }else{
-                aux.getAnt().setProx(aux.getProx());
-                aux.getProx().setAnt(aux.getAnt());
-                qtd--;
-                System.out.println("O Cliente que possui o cpf "+ c.getCpf() + "Foi removido da lsita");
+            } else {
+                Node aux1;
+                if (aux == this.primeiro) {
+                    aux1 = this.primeiro.getProx();
+                    aux1.setAnt(null);
+                    this.primeiro = aux;
+                } else if (aux == this.ultimo) {
+                    aux1 = ultimo.getAnt();
+                    aux.setProx(null);
+                } else {
+                    Node anterior = aux.getAnt();
+                    Node proximo = aux.getProx();
+                    anterior.setProx(proximo);
+                    proximo.setAnt(anterior);
+                    qtd--;
+                    System.out.println("O Cliente que possui o cpf " + c.getCpf() + "Foi removido da lsita");
+                }
             }
         }
 
