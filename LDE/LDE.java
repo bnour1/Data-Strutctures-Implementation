@@ -102,6 +102,38 @@ public class LDE {
         }
     }
 
+    public void remocaoOC(Cliente c){
+
+        if (isEmpty()) {
+            System.out.println("Nada pra remover po");
+            return;
+        } else if (qtd == 1) {
+            this.primeiro = null;
+            this.ultimo = null;
+        } else {
+            Node aux = this.primeiro.getProx();
+            int result;
+            while(aux != null){
+                result = aux.getInfo().compareTo(c);
+                if(result > 0){
+                    System.out.println("Valor não encontrado");
+                    return;
+                }
+                else if(result == 0){
+                    aux.getAnt().setProx(aux.getProx());
+                    aux.getProx().setAnt(aux.getAnt());
+                    qtd--;
+                    System.out.println("O Cliente que possui o cpf "+ c.getCpf() + "Foi removido da lsita");
+                    return;
+                }else{
+                    aux = aux.getProx();
+                }
+            }
+        }
+
+        this.qtd--;
+    }
+
     public void inserirInicio(Cliente c) {
 
         Node novo = new Node(c);

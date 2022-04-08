@@ -40,6 +40,9 @@ public class App {
                 case '8':
                     c = preencher();
                     Clientlist.inserirOrdenadoDecrescente(c);
+                case '9':
+                    c = preencher();
+                    Clientlist.remocaoOC(c);
                 case '0':
                     System.out.println("Bye bye!");
                     break;
@@ -61,6 +64,7 @@ public class App {
         System.out.println("6 - Exibir lista de trás pra frente");
         System.out.println("7 - Inserção Crescente");
         System.out.println("8 - Inserção Decrescente");
+        System.out.println("9 - Remoção em Lista Ordenada Crescente");
         System.out.println("0 - Sair do programa");
         System.out.print("Informe a opção desejada: ");
     }
