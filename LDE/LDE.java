@@ -61,7 +61,7 @@ public class LDE {
             this.primeiro = novo;
             this.ultimo = novo;
             this.qtd++;
-        } else if (c.compareTo(this.primeiro.getInfo()) < 0) { // inserção antes do primeiro
+        } else if (c.compareTo(this.primeiro.getInfo()) <= 0) { // inserção antes do primeiro
             novo.setProx(this.primeiro);
             this.primeiro.setAnt(novo);
             this.primeiro = novo;
@@ -77,14 +77,7 @@ public class LDE {
             while (aux != null) {
                 result = c.compareTo(aux.getInfo());
 
-                if (result == 0) {
-                    novo.setAnt(aux.getAnt());
-                    novo.setProx(aux);
-                    aux.getAnt().setProx(novo);
-                    aux.setAnt(novo);
-                    this.qtd++;
-                    return;
-                } else if (result < 0) {
+                if (result <= 0) {
                     novo.setAnt(aux.getAnt());
                     novo.setProx(aux);
                     aux.getAnt().setProx(novo);
