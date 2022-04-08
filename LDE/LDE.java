@@ -143,9 +143,11 @@ public class LDE {
                     Node proximo = aux.getProx();
                     anterior.setProx(proximo);
                     proximo.setAnt(anterior);
-                    qtd--;
+                    
                     System.out.println("O Cliente que possui o cpf " + c.getCpf() + "Foi removido da lsita");
                 }
+
+                qtd--;
             }
         }
 
