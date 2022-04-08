@@ -102,6 +102,26 @@ public class LDE {
         }
     }
 
+    public Node buscaMelhorada(Cliente n){
+        Node aux = this.primeiro;
+        int result;
+
+        while(aux != null){
+            result = aux.getInfo().compareTo(n);
+            if(result > 0){
+                System.out.println("Valor não encontrado");
+                return null;
+            }
+            else if(result == 0){
+                return aux;
+            }else{
+                aux = aux.getProx();
+            }
+        }
+
+        return null;
+    }
+
     public void remocaoOC(Cliente c){
 
         if (isEmpty()) {
@@ -111,23 +131,15 @@ public class LDE {
             this.primeiro = null;
             this.ultimo = null;
         } else {
-            Node aux = this.primeiro.getProx();
-            int result;
-            while(aux != null){
-                result = aux.getInfo().compareTo(c);
-                if(result > 0){
-                    System.out.println("Valor não encontrado");
-                    return;
-                }
-                else if(result == 0){
-                    aux.getAnt().setProx(aux.getProx());
-                    aux.getProx().setAnt(aux.getAnt());
-                    qtd--;
-                    System.out.println("O Cliente que possui o cpf "+ c.getCpf() + "Foi removido da lsita");
-                    return;
-                }else{
-                    aux = aux.getProx();
-                }
+            Node aux = buscaMelhorada(c);
+
+            if(aux == null){
+                System.out.println("Cliente não encontrado");
+            }else{
+                aux.getAnt().setProx(aux.getProx());
+                aux.getProx().setAnt(aux.getAnt());
+                qtd--;
+                System.out.println("O Cliente que possui o cpf "+ c.getCpf() + "Foi removido da lsita");
             }
         }
 
