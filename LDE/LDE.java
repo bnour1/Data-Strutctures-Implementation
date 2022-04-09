@@ -55,6 +55,28 @@ public class LDE {
         }
     }
 
+    public LDE intersection(LDE lista2) {
+        LDE lista = new LDE();        
+    if(lista2.isEmpty() || isEmpty()){
+        System.out.println("Uma das listas está vazia");
+        return null;
+    }else{
+        Node runList1 = this.primeiro;
+        Node runList2 = lista2.primeiro;
+        while(runList1 != null){
+            while(runList2 != null){
+                if(runList2.getInfo().compareTo(runList1.getInfo()) == 0){
+                    lista2.inserirOrdenado(runList1.getInfo());
+                }
+                runList2 = runList2.getProx();
+            }
+            runList1 = runList1.getProx();
+            runList2 = lista2.primeiro;
+        }
+        return lista;
+        }        
+    }
+
     public void inserirOrdenado(Cliente c) {
         Node novo = new Node(c);
         if (this.isEmpty() == true) { // inserção na lista vazia
