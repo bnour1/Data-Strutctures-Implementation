@@ -1,6 +1,7 @@
-package Atividade4LDE;
+package lde.atividade4.questao1;
 
 import java.util.Scanner;
+
 
 public class App {
     public static void main(String[] args) {

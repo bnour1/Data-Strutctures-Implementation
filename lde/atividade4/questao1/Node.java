@@ -1,4 +1,4 @@
-package Atividade4LDE;
+package lde.atividade4.questao1;
 
 public class Node {
     private Node ant;

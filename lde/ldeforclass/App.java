@@ -1,4 +1,4 @@
-package LDE;
+package lde.ldeforclass;
 
 import java.util.Scanner;
 
