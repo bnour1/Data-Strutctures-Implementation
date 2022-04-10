@@ -1,14 +1,12 @@
 # ED1class
-    Pacotes das aulas de estrutura de dados I
+    Pacotes das aulas e atividades da disciplina de Estrutura de dados I
 
- #
-## Atividade 05/04 (LDE)
-    1- inserir em ordem decrescente 
-    2- permitir valores repetidos
-    3- Algoritimo de remoção  
-        Ajudas na função de busca
-        1 aux == null não achou
-        2 aux != null achou
-        2.1 aux == this.primeiro //remoção no primeiro
-        2.2 aux == this.ultimo == remoção do ultimo
-        2.3 remoção no meio
+
+## Atividade 1 Concluida ✅
+    Metodos implementados no pacote ldeforclass
+## Atividade 2 Concluida ✅
+    Meotodos implementados no pacote ldeforclass
+## Atividade 3 Concluida ✅
+    Metodos implementados do pacote ldeforclass
+## Atividade 4 Concluida ✅
+    pacotes das questões com os metodos implementados no pacote atividade4 
