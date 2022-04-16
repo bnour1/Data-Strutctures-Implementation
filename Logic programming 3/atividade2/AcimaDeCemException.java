@@ -1,4 +1,4 @@
-package Atividade2;
+package atividade2;
 
 public class AcimaDeCemException extends Exception {
 

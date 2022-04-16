@@ -1,4 +1,4 @@
-package RegexPatterns;
+package regexpatterns;
 
 import java.util.regex.*;
 public class App {
