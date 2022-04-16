@@ -1,4 +1,4 @@
-package lde.ldeforclass;
+package datastructure1.lde.ldeforclass;
 
 import java.util.Scanner;
 

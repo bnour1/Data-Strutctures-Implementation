@@ -1,11 +1,11 @@
-package lde.atividade4.questao1;
+package atividade4.questao4;
 
 public class Node {
     private Node ant;
-    private User info;
+    private Pessoa info;
     private Node prox;
 
-    public Node(User c) {
+    public Node(Pessoa c) {
         this.info = c;
     }
 
@@ -17,7 +17,7 @@ public class Node {
         this.prox = novoProx;
     }
 
-    public void setInfo(User valor) {
+    public void setInfo(Pessoa valor) {
         this.info = valor;
     }
 
@@ -29,7 +29,7 @@ public class Node {
         return this.prox;
     }
 
-    public User getInfo() {
+    public Pessoa getInfo() {
         return this.info;
     }
 }

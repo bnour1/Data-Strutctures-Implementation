@@ -1,4 +1,4 @@
-package lde.atividade4.questao3;
+package atividade4.questao3;
 /*
 3 - Considere uma lista linear duplamente encadeada cujos nós armazenam objetos da classe
 Livro. Considere ainda que a referida lista ESTÁ ORDENADA e PODE CONTER elementos
@@ -7,7 +7,7 @@ como parâmetro o Livro a ser removido. A função deverá retornar quantas ocor
 foram removidas da lista.
 */
 
-import lde.atividade4.questao1.*;
+import datastructure1.lde.atividade4.questao1.*;
 
 public class LogicaRemocaoLivro extends LDE {
 

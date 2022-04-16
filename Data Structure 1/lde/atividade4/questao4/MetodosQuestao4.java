@@ -1,4 +1,4 @@
-package lde.atividade4.questao4;
+package atividade4.questao4;
 
 /*
 4 - Considere uma lista linear duplamente encadeada (vazia ou não) cujos nós devem

@@ -1,4 +1,4 @@
-package lde.atividade4.questao1;
+package atividade4.questao1;
 
 public class LDE {
 
