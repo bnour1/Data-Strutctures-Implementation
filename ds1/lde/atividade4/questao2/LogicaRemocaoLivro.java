@@ -1,6 +1,6 @@
-package atividade4.questao2;
+package ds1.lde.atividade4.questao2;
 
-import datastructure1.lde.atividade4.questao1.*;
+import ds1.lde.atividade4.questao1.*;
 
 public class LogicaRemocaoLivro extends LDE {
 

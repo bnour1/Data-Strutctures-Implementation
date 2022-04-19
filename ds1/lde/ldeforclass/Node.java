@@ -1,11 +1,11 @@
-package atividade4.questao1;
+package ds1.lde.ldeforclass;
 
 public class Node {
     private Node ant;
-    private User info;
+    private Cliente info;
     private Node prox;
 
-    public Node(User c) {
+    public Node(Cliente c) {
         this.info = c;
     }
 
@@ -17,7 +17,7 @@ public class Node {
         this.prox = novoProx;
     }
 
-    public void setInfo(User valor) {
+    public void setInfo(Cliente valor) {
         this.info = valor;
     }
 
@@ -29,7 +29,7 @@ public class Node {
         return this.prox;
     }
 
-    public User getInfo() {
+    public Cliente getInfo() {
         return this.info;
     }
 }

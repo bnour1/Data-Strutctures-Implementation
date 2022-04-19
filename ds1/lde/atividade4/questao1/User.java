@@ -1,4 +1,4 @@
-package atividade4.questao1;
+package ds1.lde.atividade4.questao1;
 
 public class User implements Comparable<User> {
 

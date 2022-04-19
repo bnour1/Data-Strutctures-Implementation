@@ -1,4 +1,4 @@
-package datastructure1.lde.ldeforclass;
+package ds1.lde.ldeforclass;
 
 public class Cliente implements Comparable<Cliente> {
 

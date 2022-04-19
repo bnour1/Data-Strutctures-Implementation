@@ -1,4 +1,4 @@
-package atividade4.questao4;
+package ds1.lde.atividade4.questao4;
 
 public class Node {
     private Node ant;

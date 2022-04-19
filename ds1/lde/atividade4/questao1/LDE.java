@@ -1,26 +1,6 @@
-package atividade4.questao4;
+package ds1.lde.atividade4.questao1;
 
-/*
-4 - Considere uma lista linear duplamente encadeada (vazia ou não) cujos nós devem
-armazenar objetos da classe Pessoa (Atributos: RG, nome, idade, gênero (M/F), peso e altura).
-Considere ainda a existência de duas outras listas duplamente encadeadas que estão
-inicialmente vazias e que devem ser preenchidas da seguinte forma: a primeira, com os dados
-das pessoas do gênero masculino encontradas na lista principal; a segunda, com os dados das
-pessoas do gênero feminino encontradas na lista principal. Implemente um método que irá
-percorrer a lista principal e quebrá-la em duas, fazendo o preenchimento das duas outras listas,
-segundo o critério acima especificado.
-OBS1: A lista geral não está ordenada, porém as listas geradas pelo método a ser implementado
-devem estar ordenadas por RG.
-OBS2: O campo que identifica unicamente uma pessoa é o RG. A lista original pode conter mais
-de uma ocorrência da mesma pessoa (mesmo RG), porém as duas novas listas geradas não
-podem conter pessoas com mesmo RG (ou seja, uma pessoa não pode aparece mais de uma
-vez nas listas geradas).
-OBS3: Ao final da execução do método, a lista original deve estar vazia.
-OBS4: O método implementado deve receber como parâmetro as duas listas vazia a serem
-preenchidas.
-*/
-
-public class MetodosQuestao4 {
+public class LDE {
 
     protected Node ultimo;
     protected Node primeiro;
@@ -35,41 +15,86 @@ public class MetodosQuestao4 {
         }
     }
 
-    // Logica para a questão 4 
-    public void separarPorGenero(MetodosQuestao4 womanList, MetodosQuestao4 manList){
-        Pessoa pessoaInserir;
-        String rg, nome;
-        int idade;
-        char genero;
-        double peso, altura;
-        Node aux = this.primeiro;
-        while(aux != null){
-            // Variaveis que só tão ai pra ficar legivel kkkkkkkkk
-            pessoaInserir = aux.getInfo();
-            rg = pessoaInserir.getRg();
-            nome = pessoaInserir.getNome();
-            idade = pessoaInserir.getIdade();
-            genero = pessoaInserir.getGenero();
-            peso = pessoaInserir.getPeso();
-            altura = pessoaInserir.getAltura();
-            pessoaInserir = new Pessoa(rg, nome, idade, genero, peso, altura);
-            if(aux.getInfo().getGenero() == 'F'){
-                pessoaInserir = new Pessoa(rg, nome, idade, genero, peso, altura);
-                womanList.inserirOrdenadoSR(aux.getInfo());
-            }else{
-                pessoaInserir = new Pessoa(rg, nome, idade, genero, peso, altura);
-                manList.inserirOrdenadoSR(aux.getInfo());
+    public LDE intersection(LDE lista2) {
+        LDE lista = new LDE();
+        if (lista2.isEmpty() || isEmpty()) {
+            System.out.println("Uma das listas está vazia");
+            return null;
+        } else {
+            Node runList1 = this.primeiro;
+            Node runList2 = lista2.primeiro;
+            while (runList1 != null) {
+                while (runList2 != null) {
+                    if (runList2.getInfo().compareTo(runList1.getInfo()) == 0) {
+                        lista2.inserirOrdenado(runList1.getInfo());
+                    }
+                    runList2 = runList2.getProx();
+                }
+                runList1 = runList1.getProx();
+                runList2 = lista2.primeiro;
             }
-            aux = aux.getProx();
+            return lista;
         }
-
-        this.primeiro = null;
-        this.ultimo = null;
-        this.qtd = 0;
     }
 
-    // metodo de inserção ordenada sem repetição :)
-    public void inserirOrdenadoSR(Pessoa c) {
+    public Node searchNode(Node procurado) {
+        Node aux = this.primeiro;
+        while (aux != null) {
+            if (aux.getInfo().compareTo(procurado.getInfo()) == 0) {
+                return aux;
+            }
+
+            aux = aux.getProx();
+        }
+        return null;
+    }
+
+    public LDE diferenca(LDE lista2) {
+        LDE lista = new LDE();
+        if (lista2.isEmpty() || isEmpty()) {
+            System.out.println("Uma das listas está vazia");
+            return null;
+        } else {
+            Node runList1 = this.primeiro;
+
+            while (runList1 != null) {
+                if (lista2.searchNode(runList1) == null) {
+                    lista.inserirOrdenadoSR(runList1.getInfo());
+                }
+
+                runList1 = runList1.getProx();
+
+            }
+
+            return lista;
+        }
+    }
+
+    public LDE uniao(LDE lista2) {
+        LDE lista = new LDE();
+        if (lista2.isEmpty() || isEmpty()) {
+            System.out.println("Uma das listas está vazia");
+            return null;
+        } else {
+            Node runList1 = this.primeiro;
+            Node runList2 = lista2.primeiro;
+            while (runList1 != null && runList2 != null) {
+                lista.inserirOrdenadoSR(runList1.getInfo());
+                runList1 = runList1.getProx();
+            }
+
+            while (runList2 != null) {
+                lista.inserirOrdenadoSR(runList2.getInfo());
+                runList2 = runList2.getProx();
+            }
+
+            return lista;
+
+        }
+
+    }
+
+    public void inserirOrdenadoSR(User c) {
         Node novo = new Node(c);
         if (this.isEmpty() == true) { // inserção na lista vazia
             this.primeiro = novo;
@@ -106,8 +131,7 @@ public class MetodosQuestao4 {
         }
     }
 
-    // Metodo de inserção Ordenada com repetição :)
-    public void inserirOrdenado(Pessoa c) {
+    public void inserirOrdenado(User c) {
         Node novo = new Node(c);
         if (this.isEmpty() == true) { // inserção na lista vazia
             this.primeiro = novo;
@@ -142,7 +166,6 @@ public class MetodosQuestao4 {
         }
     }
 
-    // Metodo pra exibir qlqr lista :D
     public void exibirLista() {
 
         Node aux;
