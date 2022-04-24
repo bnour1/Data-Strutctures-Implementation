@@ -62,7 +62,7 @@ public class App {
                     teste.changePriority(desc, prioridade);
                 break;
                 default:
-                    System.out.println("Opção invalida");
+                    System.out.println("Opção invalida!");
                 break;
             }
         }while(op != '0');   
@@ -76,7 +76,7 @@ public class App {
         System.out.println("║ 5 - Exibir tarefas em uma prioridade"); // item (e)
         System.out.println("║ 6 - Exibir tarefas"); // item (f)
         System.out.println("║ 7 - Alterar prioridade de uma tarefa."); // item (g)
-        System.out.println("║ 0 - Sair");
+        System.out.println("║ 0 - Sair :c");
     }
     
 }
