@@ -131,7 +131,7 @@ public class App {
             num /= 2;
         }
         while(!Stack.isEmpty()){
-            binario += Integer.toString(Math.abs(myStack.peek()));
+            binario += Integer.toString(Math.abs(Stack.peek()));
             Stack.pop();
         }
         return binario;
