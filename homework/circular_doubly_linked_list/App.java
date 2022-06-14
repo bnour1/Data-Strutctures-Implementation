@@ -13,7 +13,6 @@ public class App {
         LCDE list2 = new LCDE();
         int numb;
         char op;
-        String bookTitle, author, bookDescription;
 
         do{
             menu();
