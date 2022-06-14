@@ -1,4 +1,4 @@
-package homework.abstract_data.avaliacao_1.questao_2.dequegenerico;
+package homework.abstract_data.avaliacao_1.questao_2.deque_generico;
 
 class Node <T> {
     private T info;

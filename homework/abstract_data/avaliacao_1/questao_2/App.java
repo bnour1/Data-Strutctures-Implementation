@@ -1,7 +1,7 @@
 package homework.abstract_data.avaliacao_1.questao_2;
 import java.util.Scanner;
 
-import homework.abstract_data.avaliacao_1.questao_2.dequegenerico.Deque;
+import homework.abstract_data.avaliacao_1.questao_2.deque_generico.Deque;
 public class App {
     
     static Scanner in = new Scanner(System.in);

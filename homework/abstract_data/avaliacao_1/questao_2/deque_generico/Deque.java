@@ -1,4 +1,4 @@
-package homework.abstract_data.avaliacao_1.questao_2.dequegenerico;
+package homework.abstract_data.avaliacao_1.questao_2.deque_generico;
 
 public class Deque<T> {
     private Node<T> inicio;
@@ -56,10 +56,6 @@ public class Deque<T> {
         this.inicio = this.inicio.getProx();
         valor = aux.getInfo();
         return valor;
-    }
-
-    public T top () {
-        return this.inicio.getInfo();
     }
 
     public boolean isFull() {
